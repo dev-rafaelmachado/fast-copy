@@ -30,9 +30,12 @@ export const Badges = () => {
 
   return (
     <div className="absolute bottom-4 flex w-screen flex-row justify-center gap-4 px-4 lg:justify-end">
-      <div className="neumorphism grid h-10 w-10 cursor-pointer place-items-center rounded-xl transition-colors hover:bg-slate-600/10">
+      <a
+        href="https://github.com/dev-rafaelmachado/fast-copy"
+        className="neumorphism grid h-10 w-10 cursor-pointer place-items-center rounded-xl transition-colors hover:bg-slate-600/10"
+      >
         <GithubLogo className="dark:text-white" size={'1.6rem'} />
-      </div>
+      </a>
       <div
         onClick={toggleTheme}
         className="neumorphism grid h-10 w-10 cursor-pointer place-items-center rounded-xl transition-colors hover:bg-slate-600/10"
