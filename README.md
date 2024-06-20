@@ -19,20 +19,20 @@ O Fast Copy é um projeto que visa facilitar a cópia de textos/informações en
 ## Requisitos
 
 - [Node.js](https://nodejs.org/en/)
-- [Yarn](https://yarnpkg.com/)
+- [pnpm](https://pnpm.io/)
 
 ## Instalação
 
 ```bash
 $ git clone https://github.com/dev-rafaelmachado/fast-copy
 $ cd fast-copy
-$ yarn
+$ pnpm install
 ```
 
 ## Executando o projeto
 
 ```bash
-$ yarn dev
+$ pnpm run dev
 ```
 
 ## Variáveis de ambiente
@@ -48,12 +48,9 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 `NEXT_PUBLIC_FIREBASE_APP_ID` - ID do aplicativo do Firebase
 `NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID` - ID de medição do Firebase
 `NEXT_PUBLIC_SECRET` - Chave secreta para criptografia
+`NEXT_PUBLIC_GOOGLE_CLIENT_ID` - ID do cliente do Google
+`NEXT_PUBLIC_GOOGLE_CLIENT_SECRET` - Chave secreta do cliente do Google
 
-
-## TODO
-
-- [ ] Adicionar testes
-- [ ] Adicionar regras de segurança no Firebase
 
 ## Autores
 
