@@ -16,10 +16,8 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 
-
-signInAnonymously(auth)
-  .catch((error) => {
-    console.error("Erro ao autenticar:", error);
-});
+signInAnonymously(auth).catch((error) => {
+  console.error('Erro ao autenticar:', error)
+})
 
 export const db = getDatabase(app)
