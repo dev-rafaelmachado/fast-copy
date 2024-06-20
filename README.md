@@ -40,15 +40,25 @@ $ pnpm run dev
 Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no seu .env
 
 `NEXT_PUBLIC_FIREBASE_API_KEY` - Chave da API do Firebase
+
 `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` - Domínio de autenticação do Firebase
+
 `NEXT_PUBLIC_FIREBASE_DATABASE_URL` - URL do banco de dados do Firebase
+
 `NEXT_PUBLIC_FIREBASE_PROJECT_ID` - ID do projeto do Firebase
+
 `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` - Bucket do Firebase
+
 `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` - ID do remetente de mensagens do Firebase
+
 `NEXT_PUBLIC_FIREBASE_APP_ID` - ID do aplicativo do Firebase
+
 `NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID` - ID de medição do Firebase
+
 `NEXT_PUBLIC_SECRET` - Chave secreta para criptografia
+
 `NEXT_PUBLIC_GOOGLE_CLIENT_ID` - ID do cliente do Google
+
 `NEXT_PUBLIC_GOOGLE_CLIENT_SECRET` - Chave secreta do cliente do Google
 
 
