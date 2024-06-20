@@ -7,6 +7,9 @@ import {
   PopoverContent,
 } from '@radix-ui/react-popover'
 import { useRef, useState } from 'react'
+import { Button } from './ui/button'
+import { Input } from './ui/input'
+import toast from 'react-hot-toast'
 
 export const Config = ({ path }: { path: string }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -15,11 +18,19 @@ export const Config = ({ path }: { path: string }) => {
   const handleSubmit = () => {
     setData(path, password?.current?.value || '')
     setIsOpen(false)
+    toast('Password added/changed', {
+      icon: '🔒',
+      duration: 2000,
+    })
   }
 
   const handleRemovePassword = () => {
     removeValue(path)
     setIsOpen(false)
+    toast('Password removed', {
+      icon: '🔓',
+      duration: 2000,
+    })
   }
 
   return (
@@ -27,20 +38,22 @@ export const Config = ({ path }: { path: string }) => {
       <PopoverTrigger asChild>
         <div
           onClick={() => setIsOpen(!isOpen)}
+          // className="bg-gray-950"
           className="neumorphism grid h-10 w-10 cursor-pointer place-items-center rounded-xl transition-colors hover:bg-slate-600/10"
         >
           <Gear className="dark:text-white" size={'1.6rem'} />
         </div>
       </PopoverTrigger>
-      <PopoverContent className="neumorphism mr-6 mt-2 w-60 rounded-lg border-none p-4 outline-none outline dark:bg-secondary-color">
+      <PopoverContent className="mr-6 w-52 rounded-lg bg-slate-600/10 px-4 py-6">
         <label
-          className="w-20 text-lg text-text-white dark:text-text-black"
+          className="text-text-white dark:text-text-black text-md w-20"
           htmlFor="title"
         >
-          Adicionar/alterar Senha
+          Add/change password
         </label>
-        <input
-          className="neumorphism mt-2 w-full rounded-lg px-4 py-2 outline-none dark:bg-secondary-color dark:text-white"
+        <Input
+          // className="neumorphism dark:bg-secondary-color mt-2 w-full rounded-lg px-4 py-2 outline-none dark:text-white"
+          className="mt-4 dark:border-white/40"
           type="text"
           name="title"
           id="title"
@@ -52,12 +65,15 @@ export const Config = ({ path }: { path: string }) => {
             }
           }}
         />
-        <button
+        <Button
           onClick={handleRemovePassword}
-          className="neumorphism mt-4 flex w-52 items-center justify-center gap-2 rounded-lg bg-red-500 px-4 py-2 dark:bg-red-600 dark:text-white"
+          variant="destructive"
+          className="mt-3 w-full"
         >
-          <span className="text-xl font-medium text-white">Remover Senha</span>
-        </button>
+          <span className="text-sm font-medium text-white">
+            Remove password
+          </span>
+        </Button>
       </PopoverContent>
     </Popover>
   )

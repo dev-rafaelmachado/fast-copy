@@ -54,7 +54,6 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 - [ ] Adicionar testes
 - [ ] Adicionar regras de segurança no Firebase
-- [ ] Melhorar os secrets do Firebase
 
 ## Autores
 

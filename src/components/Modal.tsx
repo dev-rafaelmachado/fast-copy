@@ -3,6 +3,18 @@ import { X } from '@phosphor-icons/react'
 
 import useSetValue from '@/hooks/useSetValue'
 import { CardType } from '@/types/Cards'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from './ui/card'
+import { Label } from './ui/label'
+import { Input } from './ui/input'
+import { Textarea } from './ui/textarea'
+import { Button } from './ui/button'
 
 interface ModalProps {
   isOpen: boolean
@@ -28,64 +40,59 @@ export const Modal = ({ isOpen, handleClose, path }: ModalProps) => {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 z-10 flex items-center justify-center">
+        <div className="fixed inset-0 z-10 flex items-center justify-center border-none">
           <div
             onClick={handleClose}
             className="fixed inset-0 z-20 bg-black/30 backdrop-blur"
           ></div>
-          <div className="relative z-30 w-5/6 rounded-lg bg-white p-6 shadow-lg dark:bg-primary-color lg:w-2/5">
-            <h1 className="text-2xl font-medium text-text-white dark:text-text-black">
-              Adicionar um novo elemento
-            </h1>
-            <p className="text-lg font-light text-text-white/75 dark:text-text-black/75">
-              Preencha os dados
-            </p>
-            <div className="mt-8 flex w-full flex-col items-start justify-end gap-4 lg:pl-12 lg:pr-4">
-              <div className="flex w-full flex-col items-start justify-end gap-4 lg:flex-row lg:items-center">
-                <label
-                  className="w-20 text-xl text-text-white dark:text-text-black"
-                  htmlFor="title"
-                >
-                  Título:
-                </label>
-                <input
-                  className="neumorphism w-full rounded-lg px-4 py-2 outline-none dark:bg-secondary-color dark:text-white"
-                  type="text"
-                  name="title"
-                  id="title"
-                  ref={title}
-                />
-              </div>
-              <div className="flex w-full flex-col items-start justify-end gap-4 lg:flex-row">
-                <label
-                  className="w-20 text-xl text-text-white dark:text-text-black"
-                  htmlFor="content"
-                >
-                  Texto:
-                </label>
-                <textarea
-                  className="neumorphism w-full resize-none rounded-lg px-4 py-2 outline-none dark:bg-secondary-color dark:text-white"
-                  name="content"
-                  ref={content}
-                  rows={5}
-                />
-              </div>
-            </div>
-            <div className="mt-8 flex justify-end lg:px-4">
-              <button
-                disabled={isLoading}
-                onClick={handleSubmit}
-                className="neumorphism w-full resize-none rounded-lg px-8 py-2 outline-none dark:bg-secondary-color dark:text-white lg:w-min"
+          <Card className="z-30 w-[350px] border-none dark:bg-zinc-900">
+            <CardHeader>
+              <CardTitle>Create Item</CardTitle>
+              <CardDescription>
+                Fill the fields below to create a new item.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form>
+                <div className="grid w-full items-center gap-4">
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="name">Title</Label>
+                    <Input
+                      className="dark:border-white/40"
+                      id="name"
+                      placeholder="Enter the title"
+                      ref={title}
+                    />
+                  </div>
+                  <div className="flex flex-col space-y-1.5">
+                    <Label htmlFor="framework">Content</Label>
+                    <Textarea
+                      placeholder="Type your message here."
+                      ref={content}
+                      className="h-32 dark:border-white/40"
+                    />
+                  </div>
+                </div>
+              </form>
+            </CardContent>
+            <CardFooter className="flex justify-between">
+              <Button
+                onClick={handleClose}
+                variant="outline"
+                className="border-none bg-zinc-50 px-4 dark:bg-zinc-800 dark:text-white"
               >
-                Salvar
-              </button>
-            </div>
+                Cancel
+              </Button>
+              <Button disabled={isLoading} onClick={handleSubmit}>
+                Save
+              </Button>
+            </CardFooter>
             <X
               onClick={handleClose}
               size={'1.6rem'}
-              className="absolute right-6 top-6 cursor-pointer text-text-white dark:text-text-black"
+              className="text-text-white dark:text-text-black absolute right-6 top-6 cursor-pointer"
             />
-          </div>
+          </Card>
         </div>
       )}
     </>

@@ -10,6 +10,7 @@ import { removeValue } from '@/utils/removeValue'
 import { CardsType } from '@/types/Cards'
 import { Card } from '@/components/Card'
 import { Modal } from '@/components/Modal'
+import { Button } from '@/components/ui/button'
 
 export default function Dashboard() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -35,12 +36,12 @@ export default function Dashboard() {
   }
 
   return (
-    <main className="h-screen w-screen bg-white px-6 py-8 transition-colors dark:bg-primary-color lg:px-28 lg:py-20">
-      <p className="w-full text-center text-4xl text-text-white dark:text-text-black">
-        <span className="font-bold">Olá </span>
+    <main className="h-screen w-screen bg-slate-100 px-6 py-8 transition-colors dark:bg-zinc-950 lg:px-28 lg:py-20">
+      <p className="text-text-white dark:text-text-black w-full text-center text-4xl">
+        <span className="font-bold">Hello </span>
         <span className="font-light">{getFirstName(name)}</span>
       </p>
-      <section className="no-scrollbar lg:scrollbar mt-4 flex h-3/4 w-full flex-wrap items-center justify-center gap-8 overflow-auto p-4 lg:h-5/6">
+      <section className="mt-4 flex h-3/4 w-full flex-wrap items-start justify-start gap-8 overflow-auto p-4 lg:h-5/6">
         {listCards && Object.keys(listCards).length > 0 ? (
           Object.keys(listCards).map((key) => {
             return (
@@ -58,14 +59,15 @@ export default function Dashboard() {
           <></>
         )}
       </section>
-      <div className="mt-8 flex w-full items-center justify-center text-text-white dark:text-text-black">
-        <button
+      <div className="text-text-white dark:text-text-black mt-8 flex w-full items-center justify-center">
+        <Button
+          variant="outline"
           onClick={() => setIsOpen(true)}
-          className="neumorphism flex w-52 items-center justify-center gap-2 rounded-lg px-4 py-2 dark:bg-secondary-color"
+          className="flex gap-2 border-none bg-white px-12 py-3 dark:bg-zinc-900 dark:hover:bg-zinc-950"
         >
           <Plus size={'1.6rem'} />
-          <span className=" text-xl font-medium">Adicionar</span>
-        </button>
+          <span className=" text-xl font-medium">Add</span>
+        </Button>
       </div>
       <Modal
         isOpen={isOpen}
@@ -74,9 +76,9 @@ export default function Dashboard() {
       />
       <a
         onClick={handleExit}
-        className="absolute bottom-4 left-4 z-10 cursor-pointer select-none text-lg font-bold text-text-white hover:underline dark:text-text-black"
+        className="text-text-white dark:text-text-black absolute bottom-4 left-4 z-10 cursor-pointer select-none text-lg font-bold hover:underline"
       >
-        Sair
+        Exit
       </a>
     </main>
   )

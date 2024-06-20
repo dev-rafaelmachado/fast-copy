@@ -18,11 +18,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <Providers>
-      <html lang="pt-BR">
+      <html lang="pt-BR" className="dark">
         <body className={lato.className}>
           {children}
           <Badges />
-          <Toaster />
+          <Toaster
+            gutter={8}
+            toastOptions={{
+              className: 'dark:bg-zinc-700 dark:text-white',
+            }}
+          />
         </body>
       </html>
     </Providers>

@@ -3,7 +3,7 @@ import { GithubLogo, Moon, Sun } from '@phosphor-icons/react'
 import { useState, useEffect } from 'react'
 
 export const Badges = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark')
 
   const toggleTheme = () => {
     if (theme === 'light') {
@@ -24,6 +24,8 @@ export const Badges = () => {
       setTheme(savedTheme as 'light' | 'dark')
       if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
       }
     }
   }, [])
@@ -40,11 +42,7 @@ export const Badges = () => {
         onClick={toggleTheme}
         className="neumorphism grid h-10 w-10 cursor-pointer place-items-center rounded-xl transition-colors hover:bg-slate-600/10"
       >
-        {theme === 'light' ? (
-          <Moon size={'1.6rem'} />
-        ) : (
-          <Sun color="#fff" size={'1.6rem'} />
-        )}
+        {theme === 'light' ? <Moon size={'1.6rem'} /> : <Sun size={'1.6rem'} />}
       </div>
     </div>
   )
