@@ -31,7 +31,7 @@ export const Badges = () => {
   }, [])
 
   return (
-    <div className="absolute bottom-4 flex w-screen flex-row justify-center gap-4 px-4 lg:justify-end">
+    <div className="absolute bottom-1 lg:bottom-4 flex w-screen flex-row justify-center gap-4 px-4 lg:justify-end">
       <a
         href="https://github.com/dev-rafaelmachado/fast-copy"
         className="neumorphism grid h-10 w-10 cursor-pointer place-items-center rounded-xl transition-colors hover:bg-slate-600/10"

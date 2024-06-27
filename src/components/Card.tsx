@@ -30,8 +30,6 @@ export const Card = ({ title, content, handleRemove }: CardProps) => {
     })
   }
 
-  console.log('content', content)
-
   return (
     <CardComponent className="w-80 rounded-lg border-none bg-white px-4 py-2 dark:bg-zinc-900 dark:text-white">
       <CardHeader>
@@ -44,7 +42,6 @@ export const Card = ({ title, content, handleRemove }: CardProps) => {
       </CardHeader>
       <CardContent
         className="h-48 overflow-y-auto"
-        // onClick={() => handleCopy(content)}
       >
         <div className="text-sm dark:text-gray-300 whitespace-normal break-words">
           {content}
