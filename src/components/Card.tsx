@@ -30,6 +30,8 @@ export const Card = ({ title, content, handleRemove }: CardProps) => {
     })
   }
 
+  console.log('content', content)
+
   return (
     <CardComponent className="w-80 rounded-lg border-none bg-white px-4 py-2 dark:bg-zinc-900 dark:text-white">
       <CardHeader>
@@ -41,10 +43,12 @@ export const Card = ({ title, content, handleRemove }: CardProps) => {
         </CardTitle>
       </CardHeader>
       <CardContent
-        className="max-h-40 min-w-64 max-w-sm overflow-scroll text-sm text-gray-500"
+        className="h-48 overflow-y-auto"
         // onClick={() => handleCopy(content)}
       >
-        {content}
+        <div className="text-sm dark:text-gray-300 whitespace-normal break-words">
+          {content}
+        </div>
       </CardContent>
       <CardFooter className="mt-4 flex flex-col justify-between gap-2">
         <Button
