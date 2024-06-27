@@ -40,10 +40,8 @@ export const Card = ({ title, content, handleRemove }: CardProps) => {
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent
-        className="h-48 overflow-y-auto"
-      >
-        <div className="text-sm dark:text-gray-300 whitespace-normal break-words">
+      <CardContent className="h-48 overflow-y-auto">
+        <div className="whitespace-normal break-words text-sm dark:text-gray-300">
           {content}
         </div>
       </CardContent>

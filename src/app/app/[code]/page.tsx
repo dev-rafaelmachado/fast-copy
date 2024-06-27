@@ -77,7 +77,7 @@ export default function App() {
       </section>
       {isLogged && (
         <div suppressHydrationWarning>
-          <div className="text-text-white dark:text-text-black mt-4 lg:mt-8 flex w-full items-center justify-center">
+          <div className="text-text-white dark:text-text-black mt-4 flex w-full items-center justify-center lg:mt-8">
             <Button
               variant="outline"
               onClick={() => setIsOpen(true)}
